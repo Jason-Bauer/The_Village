@@ -279,11 +279,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d403b7470bce1b74dafd67d633ae4cd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numrows: 2
-  numcolumns: 2
+  numrows: 5
+  numcolumns: 5
   tile: {fileID: 1414565752660026, guid: 3875fe352a5944a46ad2643e0744e67e, type: 2}
   parent: {fileID: 17447642}
   townhall: {fileID: 1572364062999216, guid: ca05d21dc6be1a0438758a5a53f4abc4, type: 2}
+  Land1: {fileID: 1524587935802234, guid: 68c56880bc32eea4db3082ddb5a1b326, type: 2}
+  Land2: {fileID: 1559067371674736, guid: 09243258f6536824f954bca79a667e34, type: 2}
+  Land3: {fileID: 1933144616872814, guid: b4488ae1a419fed4dbe492c9a113d8d7, type: 2}
+  lands: []
 --- !u!4 &17447644
 Transform:
   m_ObjectHideFlags: 0
