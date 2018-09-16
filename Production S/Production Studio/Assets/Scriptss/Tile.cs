@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Tile : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+    public GameObject Buildingattached;
+    bool isused;
+    bool adjacenttobuilding;
+    int numinpriority = 0;
+    public int x;
+    public int y;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
