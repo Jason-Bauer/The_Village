@@ -261,6 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 17447644}
   - component: {fileID: 17447643}
+  - component: {fileID: 17447645}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -301,6 +302,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &17447645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 17447642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 399082c5c6ecaec418320405aafa20e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InfluenceMenu: {fileID: 1554742141}
+  gather: {fileID: 257196483}
+  war: {fileID: 1372088310}
+  tech: {fileID: 1166339535}
+  isgather: 0
+  iswar: 0
+  istech: 0
 --- !u!1 &46114698
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,7 +1279,7 @@ RectTransform:
   m_GameObject: {fileID: 216544142}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05094739, y: 0.087742716, z: 0.12453805}
+  m_LocalScale: {x: 0.069257885, y: 0.119277455, z: 0.16929702}
   m_Children:
   - {fileID: 1726699227}
   m_Father: {fileID: 704078035}
@@ -1268,7 +1287,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -413, y: 218}
+  m_AnchoredPosition: {x: -593, y: 314}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &216544144
@@ -1546,8 +1565,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 257196483}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.5327783, y: 3.7219224, z: 7.083373}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00021422}
+  m_LocalScale: {x: 6.2162523, y: 5.104244, z: 9.714138}
   m_Children:
   - {fileID: 306058662}
   m_Father: {fileID: 1554742142}
@@ -1555,7 +1574,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16, y: 152}
+  m_AnchoredPosition: {x: -16, y: 204.01}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &257196485
@@ -1596,7 +1615,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 257196486}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 17447645}
+        m_MethodName: flipgather
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &257196486
@@ -3882,7 +3912,6 @@ GameObject:
   - component: {fileID: 704078034}
   - component: {fileID: 704078033}
   - component: {fileID: 704078032}
-  - component: {fileID: 704078036}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3971,18 +4000,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &704078036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 704078031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 399082c5c6ecaec418320405aafa20e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InfluenceMenu: {fileID: 1554742141}
 --- !u!1 &742795351
 GameObject:
   m_ObjectHideFlags: 0
@@ -4016,7 +4033,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 395, y: 210}
+  m_AnchoredPosition: {x: 590, y: 310}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &742795353
@@ -6186,8 +6203,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1166339535}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0003682957}
-  m_LocalScale: {x: 4.5327783, y: 3.7219224, z: 7.083373}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00078484}
+  m_LocalScale: {x: 6.2162523, y: 5.104244, z: 9.714138}
   m_Children:
   - {fileID: 2088562715}
   m_Father: {fileID: 1554742142}
@@ -6195,7 +6212,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16.000046, y: -128.08046}
+  m_AnchoredPosition: {x: -16, y: -180.09}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1166339537
@@ -6236,7 +6253,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1166339538}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 17447645}
+        m_MethodName: fliptech
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1166339538
@@ -7330,8 +7358,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1372088310}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0000042382017}
-  m_LocalScale: {x: 4.5327783, y: 3.7219224, z: 7.083373}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00010428}
+  m_LocalScale: {x: 6.2162523, y: 5.104244, z: 9.714138}
   m_Children:
   - {fileID: 660494506}
   m_Father: {fileID: 1554742142}
@@ -7339,7 +7367,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16, y: 14.000053}
+  m_AnchoredPosition: {x: -16, y: 14.758}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1372088312
@@ -7380,7 +7408,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1372088313}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 17447645}
+        m_MethodName: flipwar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1372088313
@@ -7527,7 +7566,7 @@ RectTransform:
   m_GameObject: {fileID: 1554742141}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.19322665, y: 0.42487788, z: 0.16766253}
+  m_LocalScale: {x: 0.22493516, y: 0.49460036, z: 0.19517596}
   m_Children:
   - {fileID: 257196484}
   - {fileID: 1372088311}
@@ -7537,7 +7576,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -308, y: 29}
+  m_AnchoredPosition: {x: -497, y: 29}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1554742143
@@ -7695,7 +7734,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.6518555, y: -214}
+  m_AnchoredPosition: {x: 5, y: -322}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1581428431
@@ -7866,7 +7905,7 @@ RectTransform:
   m_GameObject: {fileID: 1726699226}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.00054712006}
-  m_LocalScale: {x: 7.108494, y: 25.918993, z: 9.077176}
+  m_LocalScale: {x: 9.812565, y: 35.778576, z: 12.530133}
   m_Children: []
   m_Father: {fileID: 216544143}
   m_RootOrder: 0
@@ -7915,7 +7954,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 704078036}
+      - m_Target: {fileID: 17447645}
         m_MethodName: OpenDropdown
         m_Mode: 1
         m_Arguments:
