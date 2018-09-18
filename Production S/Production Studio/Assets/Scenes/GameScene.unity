@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 17447644}
   - component: {fileID: 17447643}
   - component: {fileID: 17447645}
+  - component: {fileID: 17447646}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -280,6 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d403b7470bce1b74dafd67d633ae4cd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AdjacentTiles: []
   numrows: 5
   numcolumns: 5
   tile: {fileID: 1414565752660026, guid: 3875fe352a5944a46ad2643e0744e67e, type: 2}
@@ -317,6 +319,32 @@ MonoBehaviour:
   gather: {fileID: 257196483}
   war: {fileID: 1372088310}
   tech: {fileID: 1166339535}
+  isgather: 0
+  iswar: 0
+  istech: 0
+--- !u!114 &17447646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 17447642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9c2918a53ba38f4ea049194bfd54617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Buildings: []
+  possibleBuildings: 
+  Townhall: {fileID: 0}
+  Farm: {fileID: 0}
+  House: {fileID: 0}
+  Church: {fileID: 0}
+  Barracks: {fileID: 0}
+  Tower: {fileID: 0}
+  Encampment: {fileID: 0}
+  Cauldron: {fileID: 0}
+  Factory: {fileID: 0}
+  Observatory: {fileID: 0}
   isgather: 0
   iswar: 0
   istech: 0

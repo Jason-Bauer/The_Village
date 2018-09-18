@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TileManager : MonoBehaviour {
     public List<List<GameObject>> Tiles;
+    public List<GameObject> AdjacentTiles;
     public int numrows;
     public int numcolumns;
     public GameObject tile;
@@ -18,6 +19,7 @@ public class TileManager : MonoBehaviour {
         lands.Add(Land1);
         lands.Add(Land2);
         lands.Add(Land3);
+        AdjacentTiles = new List<GameObject>();
         Tiles = new List<List<GameObject>>();
          currentX = numrows*-1.1f;
         currentZ = numcolumns*-1.1f;
@@ -88,12 +90,51 @@ public class TileManager : MonoBehaviour {
                 }
             }
         }
+        checkAdjacent();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
 
     }
-	
-	// Update is called once per frame
-	void Update ()
+    public void checkAdjacent()
     {
-       
+        AdjacentTiles.Clear();
+        for (int i = 0; i <= numrows * 2; i++)
+        {
+            List<GameObject> spawnrow = new List<GameObject>();
+
+            for (int j = 0; j <= numcolumns * 2; j++)
+            {
+                if(i>0 &&j>0 && i < Tiles.Count-1 && j < Tiles.Count-1)
+                {
+                    if (Tiles[i + 1][j].GetComponent<Tile>().isbuildingon || Tiles[i - 1][j].GetComponent<Tile>().isbuildingon)
+                    {
+                        Tiles[i][j].GetComponent<Tile>().adjacenttobuilding = true;
+                        AdjacentTiles.Add(Tiles[i][j]);
+                    }
+                    else if (Tiles[i + 1][j+1].GetComponent<Tile>().isbuildingon || Tiles[i - 1][j+1].GetComponent<Tile>().isbuildingon)
+                    {
+                        Tiles[i][j].GetComponent<Tile>().adjacenttobuilding = true;
+                        AdjacentTiles.Add(Tiles[i][j]);
+                    }
+                   else if (Tiles[i + 1][j-1].GetComponent<Tile>().isbuildingon || Tiles[i - 1][j-1].GetComponent<Tile>().isbuildingon)
+                    {
+                        Tiles[i][j].GetComponent<Tile>().adjacenttobuilding = true;
+                        AdjacentTiles.Add(Tiles[i][j]);
+                    }
+                    else if (Tiles[i][j+1].GetComponent<Tile>().isbuildingon || Tiles[i][j-1].GetComponent<Tile>().isbuildingon)
+                    {
+                        Tiles[i][j].GetComponent<Tile>().adjacenttobuilding = true;
+                        AdjacentTiles.Add(Tiles[i][j]);
+                    }
+                    else
+                    {
+                        Tiles[i][j].GetComponent<Tile>().adjacenttobuilding = false;
+                    }
+                }
+            }
+        }
     }
 }

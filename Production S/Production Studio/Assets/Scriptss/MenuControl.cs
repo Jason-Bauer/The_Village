@@ -50,7 +50,7 @@ public class MenuControl : MonoBehaviour {
         {
             Debug.Log("how?");
         }
-
+        this.GetComponent<Priority>().BuildPriority();
     }
     public void flipwar()
     {
@@ -68,7 +68,7 @@ public class MenuControl : MonoBehaviour {
         {
             Debug.Log("hoWWWWW?");
         }
-
+        this.GetComponent<Priority>().BuildPriority();
     }
     public void fliptech()
     {
@@ -86,6 +86,6 @@ public class MenuControl : MonoBehaviour {
         {
             Debug.Log("No really. how?");
         }
-
+        this.GetComponent<Priority>().BuildPriority();
     }
 }
