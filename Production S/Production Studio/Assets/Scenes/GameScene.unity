@@ -263,6 +263,7 @@ GameObject:
   - component: {fileID: 17447643}
   - component: {fileID: 17447645}
   - component: {fileID: 17447646}
+  - component: {fileID: 17447647}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -282,8 +283,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AdjacentTiles: []
-  numrows: 5
-  numcolumns: 5
+  numrows: 10
+  numcolumns: 10
   tile: {fileID: 1414565752660026, guid: 3875fe352a5944a46ad2643e0744e67e, type: 2}
   parent: {fileID: 17447642}
   townhall: {fileID: 1572364062999216, guid: ca05d21dc6be1a0438758a5a53f4abc4, type: 2}
@@ -333,21 +334,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c2918a53ba38f4ea049194bfd54617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tiles: {fileID: 0}
+  manager: {fileID: 0}
+  possibletiles: []
+  NextTile: {fileID: 0}
   Buildings: []
   possibleBuildings: 
   Townhall: {fileID: 0}
-  Farm: {fileID: 0}
-  House: {fileID: 0}
-  Church: {fileID: 0}
-  Barracks: {fileID: 0}
-  Tower: {fileID: 0}
-  Encampment: {fileID: 0}
-  Cauldron: {fileID: 0}
-  Factory: {fileID: 0}
-  Observatory: {fileID: 0}
+  Farm: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0, type: 2}
+  House: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0, type: 2}
+  Church: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0, type: 2}
+  Barracks: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0, type: 2}
+  Tower: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0, type: 2}
+  Encampment: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0, type: 2}
+  Cauldron: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0, type: 2}
+  Factory: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0, type: 2}
+  Observatory: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0,
+    type: 2}
   isgather: 0
   iswar: 0
   istech: 0
+--- !u!114 &17447647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 17447642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b93537bc4244ad4e9a9c235f758a956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Resources: 0
+  ResourceGain: 0
+  Villagers: 0
+  Soldiers: 0
+  TechLvl: 0
+  RText: {fileID: 1947754052}
+  VText: {fileID: 88122705}
+  SText: {fileID: 1224317855}
+  TText: {fileID: 802063082}
 --- !u!1 &46114698
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,14 +569,14 @@ RectTransform:
   m_GameObject: {fileID: 88122703}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6175499, y: 10.413168, z: 5.090584}
+  m_LocalScale: {x: 2, y: 14, z: 7}
   m_Children: []
   m_Father: {fileID: 1581428430}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -224, y: -59}
+  m_AnchoredPosition: {x: -411, y: -59.001}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &88122705
@@ -4378,14 +4404,14 @@ RectTransform:
   m_GameObject: {fileID: 802063080}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6179692, y: 10.415866, z: 5.091903}
+  m_LocalScale: {x: 2, y: 14, z: 7}
   m_Children: []
   m_Father: {fileID: 1581428430}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 376, y: -59.000668}
+  m_AnchoredPosition: {x: 469, y: -59}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &802063082
@@ -6524,14 +6550,14 @@ RectTransform:
   m_GameObject: {fileID: 1224317853}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6179692, y: 10.415866, z: 5.091903}
+  m_LocalScale: {x: 2, y: 14, z: 7}
   m_Children: []
   m_Father: {fileID: 1581428430}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -46, y: -59.00015}
+  m_AnchoredPosition: {x: -117, y: -59}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1224317855
@@ -9403,14 +9429,14 @@ RectTransform:
   m_GameObject: {fileID: 1947754050}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6179692, y: 10.415866, z: 5.091903}
+  m_LocalScale: {x: 2, y: 14, z: 7}
   m_Children: []
   m_Father: {fileID: 1581428430}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 165, y: -59.000668}
+  m_AnchoredPosition: {x: 142, y: -59}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1947754052

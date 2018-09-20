@@ -16,6 +16,9 @@ public class MenuControl : MonoBehaviour {
         war.GetComponent<Image>().color = Color.red;
         gather.GetComponent<Image>().color = Color.red;
         tech.GetComponent<Image>().color = Color.red;
+        isgather = true;
+        gather.GetComponent<Image>().color = Color.green;
+    
     }
 	
 	// Update is called once per frame
