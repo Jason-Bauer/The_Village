@@ -341,10 +341,10 @@ MonoBehaviour:
   Buildings: []
   possibleBuildings: 
   Townhall: {fileID: 0}
-  Farm: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0, type: 2}
+  Farm: {fileID: 1101518536118638, guid: a3615406660646b40986a59af7ca3827, type: 2}
   House: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0, type: 2}
   Church: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0, type: 2}
-  Barracks: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0, type: 2}
+  Barracks: {fileID: 1356068532222984, guid: 8b9d55321c2cd24439369d4c143c17e9, type: 2}
   Tower: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0, type: 2}
   Encampment: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0, type: 2}
   Cauldron: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0, type: 2}

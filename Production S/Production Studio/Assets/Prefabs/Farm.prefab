@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4430698245641590}
+  - component: {fileID: 114025304534728882}
   m_Layer: 0
   m_Name: Farm
   m_TagString: Untagged
@@ -112,3 +113,16 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1947059633959700}
   m_Mesh: {fileID: 4300000, guid: 11081e6d93b6dc64a9a449997c3e833e, type: 3}
+--- !u!114 &114025304534728882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1101518536118638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94f5086a3ed269242876b59ed5caa97c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 100
+  type: 0
