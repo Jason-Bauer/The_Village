@@ -20,7 +20,7 @@ public class Gamemanager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        ResourceGain = Villagers * Time.deltaTime*TechLvl;
+        ResourceGain = ((Villagers/2)+TechLvl) * Time.deltaTime/2;
         Resources += ResourceGain;
         RText.text = "Resources: " + Resources.ToString("F0");
         VText.text = "Villagers: " + Villagers;

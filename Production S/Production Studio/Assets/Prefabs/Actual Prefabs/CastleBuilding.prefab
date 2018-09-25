@@ -125,4 +125,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 120
-  type: 0
+  type: 4
+  gamemander: {fileID: 0}
