@@ -50,6 +50,12 @@ public class Priority : MonoBehaviour {
                 NextTile.GetComponent<Tile>().Buildingattached.transform.parent = NextTile.transform;
                 NextTile.GetComponent<Tile>().Buildingattached.GetComponent<Building>().type = PriorityQueue.Peek();
                 NextTile.GetComponent<Tile>().Buildingattached.transform.localPosition = new Vector3(0, .5f, 0);
+
+                if (NextTile.GetComponent<Tile>().Buildingattached.GetComponent<Building>().type == 4)
+                {
+                    NextTile.GetComponent<Tile>().Buildingattached.transform.localRotation = Quaternion.Euler(0, Random.Range(-90, 90), 0);
+                }
+               // NextTile.GetComponent<Tile>().Buildingattached.transform.localRotation = Quaternion.Euler(0, Random.Range(-90, 90), 0);
                 NextTile.GetComponent<Tile>().isbuildingon = true;
                 PriorityQueue.Dequeue();
                 Tiles.checkAdjacent();
@@ -114,19 +120,19 @@ public class Priority : MonoBehaviour {
                 }
             }
         }
-        Debug.Log(topadj);
+      //  Debug.Log(topadj);
         possibletiles2.Clear();
-        for (int j = possibletiles.Count-1; j <0; j--)
+        for (int j = 0; j<possibletiles.Count; j++)
         {
-            if (possibletiles[j].GetComponent<Tile>().numadjacent == topadj)
+            if (possibletiles[j].GetComponent<Tile>().numadjacent >= topadj)
             {
-
+                //Debug.Log(topadj);
                 possibletiles2.Add(possibletiles[j]);
             }
         }
        
         int rand2 = Random.Range(0, possibletiles2.Count - 1);
         NextTile = possibletiles2[rand2];
-        Debug.Log("Built Priority");
+       // Debug.Log("Built Priority");
                 }
 }
