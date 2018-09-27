@@ -7,7 +7,7 @@ public class Priority : MonoBehaviour {
     public Queue<int> PriorityQueue;
     public TileManager Tiles;
     public Gamemanager manager;
-    public List<GameObject> possibletiles;
+    public List<GameObject> possibletiles,possibletiles2;
     public GameObject NextTile;
     public List<GameObject> Buildings;
     public List<int> possibleBuildings;
@@ -22,6 +22,7 @@ public class Priority : MonoBehaviour {
         PriorityQueue = new Queue<int>();
         possibleBuildings = new List<int>();
         possibletiles = new List<GameObject>();
+        possibletiles2 = new List<GameObject>();
         Buildings = new List<GameObject>();
         Buildings.Add(Townhall);
         Buildings.Add(Farm);
@@ -97,19 +98,35 @@ public class Priority : MonoBehaviour {
             PriorityQueue.Enqueue(possibleBuildings[rand]);
         }
         possibletiles.Clear();
+        int topadj = 0;
         for (int i = 0; i <= Tiles.Tiles.Count-1; i++)
         {
             for (int j = 0; j <= Tiles.Tiles.Count - 1; j++)
             {
-                if (!Tiles.Tiles[i][j].GetComponent<Tile>().isbuildingon&& Tiles.Tiles[i][j].GetComponent<Tile>().adjacenttobuilding)
+                if (!Tiles.Tiles[i][j].GetComponent<Tile>().isbuildingon&& Tiles.Tiles[i][j].GetComponent<Tile>().adjacenttobuilding&& Tiles.Tiles[i][j].GetComponent<Tile>().numadjacent>=topadj)
                 {
+                    topadj = Tiles.Tiles[i][j].GetComponent<Tile>().numadjacent;
                     possibletiles.Add(Tiles.Tiles[i][j]);
+                }
+                else
+                {
+                    Tiles.Tiles[i][j].GetComponent<Tile>().numadjacent=0;
                 }
             }
         }
+        Debug.Log(topadj);
+        possibletiles2.Clear();
+        for (int j = possibletiles.Count-1; j <0; j--)
+        {
+            if (possibletiles[j].GetComponent<Tile>().numadjacent == topadj)
+            {
 
-        int rand2 = Random.Range(0, possibletiles.Count - 1);
-        NextTile = possibletiles[rand2];
-
+                possibletiles2.Add(possibletiles[j]);
+            }
+        }
+       
+        int rand2 = Random.Range(0, possibletiles2.Count - 1);
+        NextTile = possibletiles2[rand2];
+        Debug.Log("Built Priority");
                 }
 }

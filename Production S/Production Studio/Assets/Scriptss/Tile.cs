@@ -6,10 +6,11 @@ public class Tile : MonoBehaviour {
     public GameObject Buildingattached;
   public bool isbuildingon;
    public bool adjacenttobuilding;
-    int numinpriority = 0;
+    public int numadjacent = 0;
     public int buildingtype;
     public int x;
     public int y;
+   
     // Use this for initialization
     void Start () {
 		

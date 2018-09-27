@@ -111,6 +111,25 @@ public class TileManager : MonoBehaviour {
             {
                 if(i>0 &&j>0 && i < Tiles.Count-1 && j < Tiles.Count-1)
                 {
+                    Tiles[i][j].GetComponent<Tile>().numadjacent = 0;
+                    if (Tiles[i + 1][j].GetComponent<Tile>().isbuildingon)
+                    {
+                        Tiles[i][j].GetComponent<Tile>().numadjacent += 1;
+                    }
+                    if (Tiles[i - 1][j].GetComponent<Tile>().isbuildingon)
+                    {
+                        Tiles[i][j].GetComponent<Tile>().numadjacent += 1;
+                    }
+                    if (Tiles[i][j + 1].GetComponent<Tile>().isbuildingon )
+                    {
+                        Tiles[i][j].GetComponent<Tile>().numadjacent += 1;
+                    }
+                    if (Tiles[i][j - 1].GetComponent<Tile>().isbuildingon)
+                    {
+                        Tiles[i][j].GetComponent<Tile>().numadjacent += 1;
+                    }
+
+
                     if (Tiles[i + 1][j].GetComponent<Tile>().isbuildingon || Tiles[i - 1][j].GetComponent<Tile>().isbuildingon)
                     {
                         Tiles[i][j].GetComponent<Tile>().adjacenttobuilding = true;
