@@ -337,19 +337,20 @@ MonoBehaviour:
   Tiles: {fileID: 0}
   manager: {fileID: 0}
   possibletiles: []
+  possibletiles2: []
   NextTile: {fileID: 0}
   Buildings: []
   possibleBuildings: 
   Townhall: {fileID: 0}
   Farm: {fileID: 1101518536118638, guid: a3615406660646b40986a59af7ca3827, type: 2}
-  House: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0, type: 2}
-  Church: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0, type: 2}
+  House: {fileID: 1925811015632650, guid: 1fa32c4afb34d2948af687818c5aaaf3, type: 2}
+  Church: {fileID: 1663478628581714, guid: c97215f2dce47bb4bbaf79337ac0379c, type: 2}
   Barracks: {fileID: 1356068532222984, guid: 8b9d55321c2cd24439369d4c143c17e9, type: 2}
-  Tower: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0, type: 2}
-  Encampment: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0, type: 2}
-  Cauldron: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0, type: 2}
-  Factory: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0, type: 2}
-  Observatory: {fileID: 1857566409453636, guid: bd70bc54f22301e4aaa358281f0812b0,
+  Tower: {fileID: 1690403922500600, guid: 2d231f0757904f649a9161d049e01e92, type: 2}
+  Encampment: {fileID: 1057403543651970, guid: 26eeebae35bc547429fe2480714d4bef, type: 2}
+  Cauldron: {fileID: 1451173580878708, guid: 30fb393f23aac6e4c975dd19297306ed, type: 2}
+  Factory: {fileID: 1444087927099714, guid: de3cf0ce2f6e402468690fafc561a9bd, type: 2}
+  Observatory: {fileID: 1273560400252714, guid: de6cc0af382172c458326017e2a74d99,
     type: 2}
   isgather: 0
   iswar: 0

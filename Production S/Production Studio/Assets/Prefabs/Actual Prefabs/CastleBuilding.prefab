@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4699701400055800}
   - component: {fileID: 114714679642099482}
+  - component: {fileID: 114258201372459402}
   m_Layer: 0
   m_Name: CastleBuilding
   m_TagString: Untagged
@@ -113,6 +114,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1605987977016564}
   m_Mesh: {fileID: 4300000, guid: ec92a04464190204e8f8ab44cfd2eee2, type: 3}
+--- !u!114 &114258201372459402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1356068532222984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94f5086a3ed269242876b59ed5caa97c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 0
+  type: 0
+  gamemander: {fileID: 0}
 --- !u!114 &114714679642099482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -124,6 +139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f5086a3ed269242876b59ed5caa97c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 120
+  cost: 100
   type: 4
   gamemander: {fileID: 0}

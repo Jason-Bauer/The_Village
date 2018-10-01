@@ -1,0 +1,151 @@
+fileFormatVersion: 2
+guid: a96fde4557a586444890447e1b841182
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: brick
+    100002: //RootNode
+    100004: cobblestone
+    100006: glass_light_blue
+    100008: gold_block
+    100010: plank_birch
+    100012: plank_oak
+    100014: wool_light_blue
+    100016: wool_pink
+    100018: wool_red
+    100020: wool_white
+    400000: brick
+    400002: //RootNode
+    400004: cobblestone
+    400006: glass_light_blue
+    400008: gold_block
+    400010: plank_birch
+    400012: plank_oak
+    400014: wool_light_blue
+    400016: wool_pink
+    400018: wool_red
+    400020: wool_white
+    2100000: brickMat
+    2100002: cobblestoneMat
+    2100004: glass_light_blueMat
+    2100006: gold_blockMat
+    2100008: plank_birchMat
+    2100010: plank_oakMat
+    2100012: wool_light_blueMat
+    2100014: wool_pinkMat
+    2100016: wool_redMat
+    2100018: wool_whiteMat
+    2300000: brick
+    2300002: cobblestone
+    2300004: glass_light_blue
+    2300006: gold_block
+    2300008: plank_birch
+    2300010: plank_oak
+    2300012: wool_light_blue
+    2300014: wool_pink
+    2300016: wool_red
+    2300018: wool_white
+    3300000: brick
+    3300002: cobblestone
+    3300004: glass_light_blue
+    3300006: gold_block
+    3300008: plank_birch
+    3300010: plank_oak
+    3300012: wool_light_blue
+    3300014: wool_pink
+    3300016: wool_red
+    3300018: wool_white
+    4300000: brick
+    4300002: cobblestone
+    4300004: glass_light_blue
+    4300006: gold_block
+    4300008: plank_birch
+    4300010: plank_oak
+    4300012: wool_light_blue
+    4300014: wool_pink
+    4300016: wool_red
+    4300018: wool_white
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
