@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MenuControl : MonoBehaviour {
-   public GameObject InfluenceMenu;
+   public GameObject InfluenceMenu, MenuMenu;
     public GameObject gather, war, tech;
     public bool isgather, iswar, istech;
 	// Use this for initialization
 	void Start () {
         InfluenceMenu.SetActive(false);
+        MenuMenu.SetActive(false);
         isgather = false;
         iswar = false;
         istech =false;
@@ -35,6 +36,17 @@ public class MenuControl : MonoBehaviour {
         else
         {
             InfluenceMenu.SetActive(true);
+        }
+    }
+    public void OpenMenu()
+    {
+        if(MenuMenu.activeSelf)
+        {
+            MenuMenu.SetActive(false);
+        }
+        else
+        {
+            MenuMenu.SetActive(true);
         }
     }
     public void flipgather()
