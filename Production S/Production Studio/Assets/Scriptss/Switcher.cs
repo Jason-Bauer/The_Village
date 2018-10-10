@@ -14,8 +14,12 @@ public class Switcher : MonoBehaviour {
     {
         SceneManager.LoadScene("GameScene");
     }
-	// Update is called once per frame
-	void Update () {
+    public void Switchsceneback()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+    // Update is called once per frame
+    void Update () {
 		
     
 	}

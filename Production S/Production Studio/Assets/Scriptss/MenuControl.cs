@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MenuControl : MonoBehaviour {
-   public GameObject InfluenceMenu, MenuMenu;
+   public GameObject InfluenceMenu, MenuMenu,OptionsMenu;
     public GameObject gather, war, tech;
     public bool isgather, iswar, istech;
 	// Use this for initialization
 	void Start () {
         InfluenceMenu.SetActive(false);
         MenuMenu.SetActive(false);
+        OptionsMenu.SetActive(false);
         isgather = false;
         iswar = false;
         istech =false;
@@ -26,7 +27,17 @@ public class MenuControl : MonoBehaviour {
 	void Update () {
 		
 	}
-
+    public void openOptions()
+    {
+        if (OptionsMenu.activeSelf)
+        {
+            OptionsMenu.SetActive(false);
+        }
+        else
+        {
+            OptionsMenu.SetActive(true);
+        }
+    }
     public void OpenDropdown()
     {
         if (InfluenceMenu.activeSelf)
@@ -43,6 +54,7 @@ public class MenuControl : MonoBehaviour {
         if(MenuMenu.activeSelf)
         {
             MenuMenu.SetActive(false);
+            OptionsMenu.SetActive(false);
         }
         else
         {
