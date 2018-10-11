@@ -11,12 +11,16 @@ public class Gamemanager : MonoBehaviour {
     public int TechLvl;
     public Text RText, VText, SText, TText;
     public bool ispaused = false;
+    public int eventtrigger;
+    public float timer;
 	// Use this for initialization
 	void Start () {
         Resources = 0;
         Villagers = 10;
         Soldiers = 0;
         TechLvl = 1;
+        eventtrigger = 100;
+        timer = 10;
 	}
 
     // Update is called once per frame
@@ -24,6 +28,24 @@ public class Gamemanager : MonoBehaviour {
     {
         if (!ispaused)
         {
+            timer += Time.deltaTime;
+            if (timer > 5)
+            {
+                timer = 0;
+                if (Villagers > eventtrigger)
+                {
+                    int rand = Random.Range(0, Villagers);
+                    if (rand > eventtrigger)
+                    {
+                        triggerEvent();
+                    }
+                }
+            }
+            eventtrigger = (int)(((TechLvl + .5) * 10)*.8);
+            if (Villagers > (TechLvl+.5) * 10)
+            {
+                Villagers = (int)((double)(TechLvl+.5) * 10);
+            }
             ResourceGain = ((Villagers / 2) + TechLvl) * Time.deltaTime / 2;
             Resources += ResourceGain;
             RText.text = "Resources: " + Resources.ToString("F0");
@@ -42,5 +64,9 @@ public class Gamemanager : MonoBehaviour {
         {
             ispaused = true;
         }
+    }
+    public void triggerEvent()
+    {
+        Debug.Log("Event Triggered");
     }
 }

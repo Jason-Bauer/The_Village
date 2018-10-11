@@ -124,6 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f5086a3ed269242876b59ed5caa97c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 100
+  cost: 150
   type: 0
   gamemander: {fileID: 0}

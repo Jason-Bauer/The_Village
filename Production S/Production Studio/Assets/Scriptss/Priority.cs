@@ -82,20 +82,39 @@ public class Priority : MonoBehaviour {
         if (isgather)
         {
             possibleBuildings.Add(1);
-            possibleBuildings.Add(2);
-            possibleBuildings.Add(3);
+            if(this.GetComponent<Gamemanager>().Villagers > 15)
+            {
+                possibleBuildings.Add(2);
+            }
+            if (this.GetComponent<Gamemanager>().Villagers > 35)
+            {
+                possibleBuildings.Add(3);
+            }
+           
         }
         if (iswar)
         {
             possibleBuildings.Add(4);
-            possibleBuildings.Add(5);
-            possibleBuildings.Add(6);
+            if (this.GetComponent<Gamemanager>().Soldiers > 15)
+            {
+                possibleBuildings.Add(5);
+            }
+            if (this.GetComponent<Gamemanager>().Soldiers > 35)
+            {
+                possibleBuildings.Add(6);
+            }
         }
         if (istech)
         {
             possibleBuildings.Add(7);
-            possibleBuildings.Add(8);
-            possibleBuildings.Add(9);
+            if (this.GetComponent<Gamemanager>().Villagers > 2)
+            {
+                possibleBuildings.Add(8);
+            }
+            if (this.GetComponent<Gamemanager>().Villagers > 3)
+            {
+                possibleBuildings.Add(9);
+            }
         }
 
         for (int i = 0; i < possibleBuildings.Count - 1; i++)
