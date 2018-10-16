@@ -15,6 +15,7 @@ public class Priority : MonoBehaviour {
     public bool isgather = false;
     public bool iswar = false;
     public bool istech = false;
+  
 	// Use this for initialization
 	void Start () {
         Tiles = this.GetComponent<TileManager>();
@@ -82,11 +83,11 @@ public class Priority : MonoBehaviour {
         if (isgather)
         {
             possibleBuildings.Add(1);
-            if(this.GetComponent<Gamemanager>().Villagers > 15)
+            if(this.GetComponent<Gamemanager>().TechLvl >= 2)
             {
                 possibleBuildings.Add(2);
             }
-            if (this.GetComponent<Gamemanager>().Villagers > 35)
+            if (this.GetComponent<Gamemanager>().TechLvl >= 3)
             {
                 possibleBuildings.Add(3);
             }
@@ -107,20 +108,21 @@ public class Priority : MonoBehaviour {
         if (istech)
         {
             possibleBuildings.Add(7);
-            if (this.GetComponent<Gamemanager>().Villagers > 2)
+            if (this.GetComponent<Gamemanager>().TechLvl >= 2)
             {
                 possibleBuildings.Add(8);
             }
-            if (this.GetComponent<Gamemanager>().Villagers > 3)
+            if (this.GetComponent<Gamemanager>().TechLvl >= 3)
             {
                 possibleBuildings.Add(9);
             }
         }
 
-        for (int i = 0; i < possibleBuildings.Count - 1; i++)
+        for (int i = 0; i < possibleBuildings.Count; i++)
         {
             int rand = Random.Range(0, possibleBuildings.Count);
             PriorityQueue.Enqueue(possibleBuildings[rand]);
+           // Debug.Log(rand);
         }
         possibletiles.Clear();
         int topadj = 0;

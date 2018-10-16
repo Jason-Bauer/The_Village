@@ -9,12 +9,14 @@ public class Gamemanager : MonoBehaviour {
     public int Villagers;
     public int Soldiers;
     public int TechLvl;
-    public Text RText, VText, SText, TText;
+    public Text RText, VText, SText, TText,EventText;
     public bool ispaused = false;
     public int eventtrigger;
     public float timer;
-	// Use this for initialization
-	void Start () {
+    private IEnumerator coroutine;
+    public bool cantrigevent = true;
+    // Use this for initialization
+    void Start () {
         Resources = 0;
         Villagers = 10;
         Soldiers = 0;
@@ -28,18 +30,22 @@ public class Gamemanager : MonoBehaviour {
     {
         if (!ispaused)
         {
-            timer += Time.deltaTime;
-            if (timer > 5)
+            //timer += Time.deltaTime;
+            if (cantrigevent)
             {
-                timer = 0;
-                if (Villagers > eventtrigger)
+                if (timer > 5)
                 {
-                    int rand = Random.Range(0, Villagers);
-                    if (rand > eventtrigger)
+                    timer = 0;
+                    if (Villagers > eventtrigger)
                     {
-                        triggerEvent();
+                        int rand = Random.Range(0, Villagers);
+                        if (rand > eventtrigger)
+                        {
+                            triggerEvent();
+                        }
                     }
                 }
+                timer += Time.deltaTime/1.2f;
             }
             eventtrigger = (int)(((TechLvl + .5) * 10)*.8);
             if (Villagers > (TechLvl+.5) * 10)
@@ -67,6 +73,20 @@ public class Gamemanager : MonoBehaviour {
     }
     public void triggerEvent()
     {
+        EventText.text = "Event: Event Triggered";
+        coroutine = WaitAndChange(3.0f);
+        StartCoroutine(coroutine);
         Debug.Log("Event Triggered");
     }
+
+    private IEnumerator WaitAndChange(float waitTime)
+    {
+            cantrigevent = false;
+            yield return new WaitForSeconds(waitTime);
+            cantrigevent = true;
+            print("WaitAndPrint " + Time.time);
+            EventText.text = "Event: ";
+        
+    }
+
 }
