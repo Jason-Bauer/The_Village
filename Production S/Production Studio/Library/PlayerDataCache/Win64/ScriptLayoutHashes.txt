@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-E:/The Village/Production S/Builds/Progress05/Production Studio.exe
+E:/The Village/Production S/Builds/Progress06/Production Studio.exe
 SceneListBegin?
 Assets/Scenes/SampleScene.unity
 Assets/Scenes/GameScene.unity
@@ -164,7 +164,7 @@ e033f131358cea5a0eabf9561e781deb UnityEngine.TestRunner.dll:UnityEngine.TestTool
 70f7dc248db3379548a88e8d4fa049f8 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 28a95668dd28649297d595834fe8417e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
 28a95668dd28649297d595834fe8417e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
-f68c1ead37cf7b49bd3b25cf78cd371b Assembly-CSharp.dll:.Gamemanager
+9c10c4b68a287187a22a648c2acc9f93 Assembly-CSharp.dll:.Gamemanager
 d75dc834c5dec688db75a55a1724c90f UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 486cd95c82d8305219c352c06b776e1f UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
 e1ea12ca952c81d81a9a21fdf34446ed UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
