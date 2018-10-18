@@ -265,6 +265,7 @@ GameObject:
   - component: {fileID: 17447646}
   - component: {fileID: 17447647}
   - component: {fileID: 17447648}
+  - component: {fileID: 17447649}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -382,6 +383,7 @@ MonoBehaviour:
   ispaused: 0
   eventtrigger: 0
   timer: 0
+  cantrigevent: 1
 --- !u!114 &17447648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,6 +395,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d570ff7017f41ed4a9829a6403c765d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &17447649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 17447642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97bf34d69178cd442ab23da0ce9d12bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vehiclePrototype: {fileID: 133344, guid: 389db4c10b8730e49950489a1ef561f8, type: 2}
+  targetPrototype: {fileID: 162398, guid: fc954daa0af50fc48b8a60a33a5e54ea, type: 2}
+  vehicle: {fileID: 0}
+  target: {fileID: 0}
+  vechbox: {fileID: 0}
+  tarbox: {fileID: 0}
+  worldSize: {x: 0, y: 0, z: 0}
+  zombies: []
+  players: []
+  zombiessp: []
+  playerssp: []
+  zombiecount: 1
+  playercount: 1
+  white: {fileID: 2100000, guid: 8b1511f85db6f0546b956a142b347cf0, type: 2}
+  red: {fileID: 2100000, guid: 8b1511f85db6f0546b956a142b347cf0, type: 2}
+  blue: {fileID: 2100000, guid: 8b1511f85db6f0546b956a142b347cf0, type: 2}
+  black: {fileID: 2100000, guid: 8b1511f85db6f0546b956a142b347cf0, type: 2}
+  green: {fileID: 2100000, guid: 8b1511f85db6f0546b956a142b347cf0, type: 2}
+  purple: {fileID: 2100000, guid: 8b1511f85db6f0546b956a142b347cf0, type: 2}
 --- !u!1 &46114698
 GameObject:
   m_ObjectHideFlags: 0

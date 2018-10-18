@@ -63,11 +63,14 @@
   <ItemGroup>
     <Compile Include="Assets\Scriptss\Audio.cs" />
     <Compile Include="Assets\Scriptss\Behavior.cs" />
+    <Compile Include="Assets\Scriptss\BehaviourManager.cs" />
+    <Compile Include="Assets\Scriptss\BoundingSphere.cs" />
     <Compile Include="Assets\Scriptss\Building.cs" />
     <Compile Include="Assets\Scriptss\Button.cs" />
     <Compile Include="Assets\Scriptss\CameraMove.cs" />
     <Compile Include="Assets\Scriptss\Gamemanager.cs" />
     <Compile Include="Assets\Scriptss\MenuControl.cs" />
+    <Compile Include="Assets\Scriptss\MovementForces.cs" />
     <Compile Include="Assets\Scriptss\PinchZoom.cs" />
     <Compile Include="Assets\Scriptss\Priority.cs" />
     <Compile Include="Assets\Scriptss\Switcher.cs" />
