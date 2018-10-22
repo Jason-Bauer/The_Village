@@ -68,14 +68,14 @@ public class BehaviourManager : MonoBehaviour
 		//worldSize = terrainGenerator.worldSize;
         for(int i = 0; i < playercount; i++)
         {
-            vehicle = Instantiate(vehiclePrototype);
-            vehicle.GetComponent<MovementForces>().townhall = this.GetComponent<TileManager>().Tiles[this.GetComponent<TileManager>().numrows][this.GetComponent<TileManager>().numcolumns].GetComponent<Tile>().Buildingattached;
-
-            players.Add(vehicle);
-            vechbox = vehicle.GetComponent<BoundingSphere>();
-            vehicle.GetComponent<MovementForces>().townhall = this.GetComponent<TileManager>().Tiles[this.GetComponent<TileManager>().numrows][this.GetComponent<TileManager>().numcolumns].GetComponent<Tile>().Buildingattached;
-            playerssp.Add(vechbox);
-            RandomizePosition(vehicle);
+           // vehicle = Instantiate(vehiclePrototype);
+           // vehicle.GetComponent<MovementForces>().townhall = this.GetComponent<TileManager>().Tiles[this.GetComponent<TileManager>().numrows][this.GetComponent<TileManager>().numcolumns].GetComponent<Tile>().Buildingattached;
+           //
+           // players.Add(vehicle);
+           // vechbox = vehicle.GetComponent<BoundingSphere>();
+           // vehicle.GetComponent<MovementForces>().townhall = this.GetComponent<TileManager>().Tiles[this.GetComponent<TileManager>().numrows][this.GetComponent<TileManager>().numcolumns].GetComponent<Tile>().Buildingattached;
+           // playerssp.Add(vechbox);
+           // RandomizePosition(vehicle);
         }
         for (int i = 0; i < zombiecount; i++)
         {
@@ -89,11 +89,38 @@ public class BehaviourManager : MonoBehaviour
             zombiessp.Add(tarbox);
             RandomizePosition(target);
         }
-		settargets();
+		//settargets();
      
 
 	}
+    public void makeVillager(GameObject Building)
+    {
+        target = Instantiate(targetPrototype);
+        target.GetComponent<MovementForces>().townhall = this.GetComponent<TileManager>().Tiles[this.GetComponent<TileManager>().numrows][this.GetComponent<TileManager>().numcolumns].GetComponent<Tile>().Buildingattached;
+        setbuilding(target,Building);
+        zombies.Add(target);
+        target.GetComponent<MovementForces>().townhall = this.GetComponent<TileManager>().Tiles[this.GetComponent<TileManager>().numrows][this.GetComponent<TileManager>().numcolumns].GetComponent<Tile>().Buildingattached;
 
+        tarbox = target.GetComponent<BoundingSphere>();
+        zombiessp.Add(tarbox);
+        RandomizePosition(target);
+    }
+    void setbuilding(GameObject villager, GameObject building)
+    {
+        villager.GetComponent<MovementForces>().thisBuilding = building;
+    }
+    void FlipTarget(GameObject villager)
+    {
+        if (villager.GetComponent<MovementForces>().target == villager.GetComponent<MovementForces>().townhall)
+        {
+            villager.GetComponent<MovementForces>().target = villager.GetComponent<MovementForces>().thisBuilding;
+        }
+        else
+        {
+            villager.GetComponent<MovementForces>().target = villager.GetComponent<MovementForces>().townhall;
+        }
+
+    }
     void settargets()
     {
         foreach(GameObject a in players)
@@ -111,7 +138,7 @@ public class BehaviourManager : MonoBehaviour
 	void RandomizePosition(GameObject theObject)
 	{
 		//Set position of target based on the size of the world
-		Vector3 position = new Vector3 (Random.Range(-10.0f,10.0f), 0.0f, Random.Range(-10.0f,10.0f));
+		Vector3 position = new Vector3 (Random.Range(-5.0f,5.0f), 0.0f, Random.Range(-5.0f,5.0f));
         //set the height of the object based on the position of the terrain
         position.y = .5f;
 		//set the position of target back
@@ -121,21 +148,27 @@ public class BehaviourManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		foreach (BoundingSphere a in playerssp) {
+	
 			foreach (BoundingSphere b in zombiessp) {
-				if(b.IsColliding(a)){
-					RandomizePosition(zombies[zombiessp.IndexOf(b)]);
-
-				}
-                if (a.IsColliding(b))
-                {
-                    RandomizePosition(players[playerssp.IndexOf(a)]);
-
+                if (zombies[zombiessp.IndexOf(b)].GetComponent<MovementForces>().thisBuilding == null)
+                { 
+                    if (b.distfromtarget<=.2)
+                    {
+                        RandomizePosition(zombies[zombiessp.IndexOf(b)]);
+                    }
+                    
                 }
-            }
+                else
+                {
+                if (b.distfromtarget <= .2)
+                {
+                    FlipTarget(zombies[zombiessp.IndexOf(b)]);
+                }
+                }
+            
 
 		}
-		settargets ();
+		//settargets ();
 	}
 
 

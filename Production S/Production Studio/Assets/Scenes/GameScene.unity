@@ -417,8 +417,8 @@ MonoBehaviour:
   players: []
   zombiessp: []
   playerssp: []
-  zombiecount: 1
-  playercount: 1
+  zombiecount: 2
+  playercount: 0
   white: {fileID: 2100000, guid: 8b1511f85db6f0546b956a142b347cf0, type: 2}
   red: {fileID: 2100000, guid: 8b1511f85db6f0546b956a142b347cf0, type: 2}
   blue: {fileID: 2100000, guid: 8b1511f85db6f0546b956a142b347cf0, type: 2}

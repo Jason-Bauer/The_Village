@@ -14,14 +14,14 @@ public class MovementForces : MonoBehaviour
 	public Vector3 gravity = new Vector3(0.0f, 0.0f, 0.0f);//force of gravity
 	Vector3 seekingForce;
 	public float mass = 1.0f;// mass of the object
-	public float maxSpeed = 0.10f;
+	public float maxSpeed = 0.010f;
    public List<GameObject> targets = new List<GameObject>();
     public GameObject closest = null;
 	private BehaviourManager behaviourMngr; //behaviour manager to calculate forces
 	private Vector3 worldSize; //store the world size
     public GameObject townhall;
     public GameObject thisBuilding;
-	private GameObject target;
+	public GameObject target;
 
 	public void SetTarget(GameObject theTarget)
 	{
@@ -47,7 +47,7 @@ public class MovementForces : MonoBehaviour
 		{
 			mass = 0.01f;
 		}
-        
+        target = townhall;
     }
 	
 	// Update is called once per frame
@@ -68,13 +68,11 @@ public class MovementForces : MonoBehaviour
 	{
 		//Step 0: update position to current tranform
 		position = transform.position;
-        closest = findclosest();
+        closest = target;
         //Step 0.5: Calculate desire velocity
         if (gameObject.tag == "Player") {
 			seekingForce = pursuit();
-		} else {
-			seekingForce = evasion ();
-		}
+		} 
 		ApplyForce (seekingForce);
 		//Step 1: Add Acceleration to Velocity * Time
 		velocity += acceleration * Time.deltaTime*10;

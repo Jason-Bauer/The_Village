@@ -7,7 +7,7 @@ public class BoundingSphere : MonoBehaviour
 	private Vector3 position;
 	public float radius = 1.0f;
 	public bool colliding = false;
-
+    public float distfromtarget = 100.0f;
 	// Use this for initialization
 	void Start ()
 	{
@@ -21,7 +21,14 @@ public class BoundingSphere : MonoBehaviour
 	void Update ()
 	{
 		position = gameObject.transform.position;
+        updatedistance();
 	}
+
+    void updatedistance()
+    {
+        distfromtarget = Vector3.Distance(position, this.gameObject.GetComponent<MovementForces>().target.transform.position);
+    }
+
 
 	void OnDrawGizmos()
 	{
