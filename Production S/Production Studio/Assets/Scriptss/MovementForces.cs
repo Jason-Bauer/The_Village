@@ -31,6 +31,7 @@ public class MovementForces : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+        maxSpeed = Random.Range(0.01f, 0.08f);
         townhall = GameObject.Find("GameManager").GetComponent<TileManager>().Tiles[GameObject.Find("GameManager").GetComponent<TileManager>().numrows][GameObject.Find("GameManager").GetComponent<TileManager>().numcolumns].GetComponent<Tile>().Buildingattached; 
 		GameObject gameMngr = GameObject.Find("GameManager");
 		if(null == gameMngr)

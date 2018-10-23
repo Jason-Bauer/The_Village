@@ -13,7 +13,7 @@ public class Gamemanager : MonoBehaviour {
     public bool ispaused = false;
     public int eventtrigger;
     public float timer;
-    private IEnumerator coroutine;
+    private IEnumerator coroutine, coroutine2;
     public bool cantrigevent = true;
     // Use this for initialization
     void Start () {
@@ -75,6 +75,16 @@ public class Gamemanager : MonoBehaviour {
     {
         EventText.text = "Event: Event Triggered";
         coroutine = WaitAndChange(3.0f);
+       
+        GameObject deletetile;
+        do{
+            int rand = Random.Range(0, this.GetComponent<TileManager>().numrows * 2);
+            deletetile = GetComponent<TileManager>().Tiles[rand][rand];
+        }while(!deletetile.GetComponent<Tile>().isbuildingon);
+        coroutine2 = BuildingDestruction(3.0f, deletetile);
+
+
+        StartCoroutine(coroutine2);
         StartCoroutine(coroutine);
         Debug.Log("Event Triggered");
     }
@@ -87,6 +97,15 @@ public class Gamemanager : MonoBehaviour {
             print("WaitAndPrint " + Time.time);
             EventText.text = "Event: ";
         
+    }
+    private IEnumerator BuildingDestruction(float waitTime, GameObject deletetile)
+    {
+     
+
+        yield return new WaitForSeconds(waitTime);
+        Destroy(deletetile.GetComponent<Tile>().Buildingattached);
+        deletetile.GetComponent<Tile>().Buildingattached = null;
+
     }
 
 }
