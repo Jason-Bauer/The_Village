@@ -111,13 +111,25 @@ public class BehaviourManager : MonoBehaviour
     }
     void FlipTarget(GameObject villager)
     {
-        if (villager.GetComponent<MovementForces>().target == villager.GetComponent<MovementForces>().townhall)
+        try
         {
-            villager.GetComponent<MovementForces>().target = villager.GetComponent<MovementForces>().thisBuilding;
+
+            if (villager.GetComponent<MovementForces>().target == villager.GetComponent<MovementForces>().townhall)
+            {
+                villager.GetComponent<MovementForces>().target = villager.GetComponent<MovementForces>().thisBuilding;
+            }
+            else
+            {
+                villager.GetComponent<MovementForces>().target = villager.GetComponent<MovementForces>().townhall;
+            }
         }
-        else
+        catch (MissingReferenceException e)
         {
-            villager.GetComponent<MovementForces>().target = villager.GetComponent<MovementForces>().townhall;
+            villager.GetComponent<MovementForces>().target = this.GetComponent<TileManager>().Tiles[this.GetComponent<TileManager>().numrows][this.GetComponent<TileManager>().numcolumns].GetComponent<Tile>().Buildingattached; ;
+            villager.GetComponent<MovementForces>().thisBuilding = null;
+            // gameMngr.GetComponent<Gamemanager>().Villagers -= 4;
+            GameObject.Find("GameManager").GetComponent<Gamemanager>().Villagers -= 4;
+            return;
         }
 
     }

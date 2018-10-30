@@ -75,12 +75,22 @@ public class Gamemanager : MonoBehaviour {
     {
         EventText.text = "Event: Event Triggered";
         coroutine = WaitAndChange(3.0f);
-       
+        bool townahlltrigger = true;
         GameObject deletetile;
         do{
-            int rand = Random.Range(0, this.GetComponent<TileManager>().numrows * 2);
-            deletetile = GetComponent<TileManager>().Tiles[rand][rand];
-        }while(!deletetile.GetComponent<Tile>().isbuildingon);
+            int rand = Random.Range(0, GetComponent<TileManager>().numrows * 2);
+            int rand1 = Random.Range(0, GetComponent<TileManager>().numrows * 2);
+            deletetile = GetComponent<TileManager>().Tiles[rand][rand1];
+            Debug.Log(rand + "," + rand1);
+            if(rand== GetComponent<TileManager>().numrows&&rand1== GetComponent<TileManager>().numrows)
+            {
+                townahlltrigger = false;
+            }
+            else
+            {
+                townahlltrigger = true;
+            }
+        }while(!deletetile.GetComponent<Tile>().isbuildingon&&townahlltrigger);
         coroutine2 = BuildingDestruction(3.0f, deletetile);
 
 
@@ -103,8 +113,20 @@ public class Gamemanager : MonoBehaviour {
      
 
         yield return new WaitForSeconds(waitTime);
-        Destroy(deletetile.GetComponent<Tile>().Buildingattached);
-        deletetile.GetComponent<Tile>().Buildingattached = null;
+        if (deletetile.GetComponent<Tile>().x == 10 && deletetile.GetComponent<Tile>().y == 10)
+        {
+            Debug.Log("Tried to delete the town hall");
+            triggerEvent();
+        }
+        else
+        {
+            Destroy(deletetile.GetComponent<Tile>().Buildingattached);
+            deletetile.GetComponent<Tile>().Buildingattached = null;
+            deletetile.GetComponent<Tile>().isbuildingon = false;
+        }
+        Villagers -= 4;
+
+           // Debug.Log("Tried to delete the town hall");
 
     }
 

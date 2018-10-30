@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class MovementForces : MonoBehaviour
 {
@@ -18,7 +19,9 @@ public class MovementForces : MonoBehaviour
    public List<GameObject> targets = new List<GameObject>();
     public GameObject closest = null;
 	private BehaviourManager behaviourMngr; //behaviour manager to calculate forces
-	private Vector3 worldSize; //store the world size
+    public GameObject gameMngr;
+
+    private Vector3 worldSize; //store the world size
     public GameObject townhall;
     public GameObject thisBuilding;
 	public GameObject target;
@@ -31,9 +34,9 @@ public class MovementForces : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-        maxSpeed = Random.Range(0.01f, 0.08f);
+        maxSpeed = UnityEngine.Random.Range(0.01f, 0.08f);
         townhall = GameObject.Find("GameManager").GetComponent<TileManager>().Tiles[GameObject.Find("GameManager").GetComponent<TileManager>().numrows][GameObject.Find("GameManager").GetComponent<TileManager>().numcolumns].GetComponent<Tile>().Buildingattached; 
-		GameObject gameMngr = GameObject.Find("GameManager");
+		gameMngr = GameObject.Find("GameManager");
 		if(null == gameMngr)
 		{
 			Debug.Log("Error in " + gameObject.name + 
@@ -64,26 +67,38 @@ public class MovementForces : MonoBehaviour
 		SetTransform();//Set the transform before render
 	}
 
-	// Update the position based on the velocity and acceleration
-	void UpdatePosition()
-	{
-		//Step 0: update position to current tranform
-		position = transform.position;
+    // Update the position based on the velocity and acceleration
+    void UpdatePosition()
+    {
+        //Step 0: update position to current tranform
+        position = transform.position;
         closest = target;
         //Step 0.5: Calculate desire velocity
-        if (gameObject.tag == "Player") {
-			seekingForce = pursuit();
-		} 
-		ApplyForce (seekingForce);
-		//Step 1: Add Acceleration to Velocity * Time
-		velocity += acceleration * Time.deltaTime*10;
-		//Step 2: Add vel to position * Time
-		position += Vector3.ClampMagnitude(velocity * Time.deltaTime*10,maxSpeed);
-		//Step 3: Reset Acceleration vector
-		acceleration = Vector3.zero;
-		//Step 4: Calculate direction (to know where we are facing)
-		direction = velocity.normalized;
-	}
+        try
+        {
+            if (gameObject.tag == "Player")
+            {
+                seekingForce = pursuit();
+            }
+            ApplyForce(seekingForce);
+            //Step 1: Add Acceleration to Velocity * Time
+            velocity += acceleration * Time.deltaTime * 10;
+            //Step 2: Add vel to position * Time
+            position += Vector3.ClampMagnitude(velocity * Time.deltaTime * 10, maxSpeed);
+            //Step 3: Reset Acceleration vector
+            acceleration = Vector3.zero;
+            //Step 4: Calculate direction (to know where we are facing)
+            direction = velocity.normalized;
+        }
+        catch (MissingReferenceException e)
+        {
+            target = townhall;
+            thisBuilding = null;
+           // gameMngr.GetComponent<Gamemanager>().Villagers -= 4;
+            GameObject.Find("GameManager").GetComponent<Gamemanager>().Villagers -= 4;
+            return;
+        }
+    }
     public GameObject findclosest()
     {
         GameObject closest = townhall;
@@ -102,7 +117,8 @@ public class MovementForces : MonoBehaviour
         return closest;
     }
     Vector3 Seek(Vector3 position)
-	{Vector3 desiredVelocity=new Vector3(0,0,0);
+    {
+        Vector3 desiredVelocity=new Vector3(0,0,0);
 		//Step 1: Calculate the desired velocity (unclamped and unnormalize)
 		
 			//this is the target position minus my current position
