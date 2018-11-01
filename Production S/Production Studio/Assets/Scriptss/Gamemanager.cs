@@ -81,7 +81,7 @@ public class Gamemanager : MonoBehaviour {
             int rand = Random.Range(0, GetComponent<TileManager>().numrows * 2);
             int rand1 = Random.Range(0, GetComponent<TileManager>().numrows * 2);
             deletetile = GetComponent<TileManager>().Tiles[rand][rand1];
-            Debug.Log(rand + "," + rand1);
+           // Debug.Log(rand + "," + rand1);
             if(rand== GetComponent<TileManager>().numrows&&rand1== GetComponent<TileManager>().numrows)
             {
                 townahlltrigger = false;
@@ -120,6 +120,20 @@ public class Gamemanager : MonoBehaviour {
         }
         else
         {
+            yield return new WaitForSeconds(.25f);
+            deletetile.GetComponent<Tile>().Buildingattached.transform.Translate(new Vector3(0, -.05f, 0));
+            yield return new WaitForSeconds(.25f);
+            deletetile.GetComponent<Tile>().Buildingattached.transform.Translate(new Vector3(0, -.05f, 0));
+            yield return new WaitForSeconds(.25f);
+            deletetile.GetComponent<Tile>().Buildingattached.transform.Translate(new Vector3(0, -.05f, 0));
+            yield return new WaitForSeconds(.25f);
+            deletetile.GetComponent<Tile>().Buildingattached.transform.Translate(new Vector3(0, -.05f, 0));
+            yield return new WaitForSeconds(.25f);
+            deletetile.GetComponent<Tile>().Buildingattached.transform.Translate(new Vector3(0, -.05f, 0));
+            yield return new WaitForSeconds(.25f);
+            deletetile.GetComponent<Tile>().Buildingattached.transform.Translate(new Vector3(0, -.05f, 0));
+            yield return new WaitForSeconds(.25f);
+            deletetile.GetComponent<Tile>().Buildingattached.transform.Translate(new Vector3(0, -.05f, 0));
             Destroy(deletetile.GetComponent<Tile>().Buildingattached);
             deletetile.GetComponent<Tile>().Buildingattached = null;
             deletetile.GetComponent<Tile>().isbuildingon = false;

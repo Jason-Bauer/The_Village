@@ -37,9 +37,9 @@ public class CameraMove : MonoBehaviour
             }
             else
             {
-                MainCam.transform.Translate(Vector3.right * Time.deltaTime);
+              //  MainCam.transform.Translate(Vector3.right * Time.deltaTime);
             }
-            MainCam.transform.position = new Vector3(Mathf.Clamp((MainCam.transform.position.x), -9.2f, 9.2f), Mathf.Clamp((MainCam.transform.position.y), -9.2f, 9.2f), Mathf.Clamp((MainCam.transform.position.z), -9.2f, 9.2f));
+           // MainCam.transform.position = new Vector3(Mathf.Clamp((MainCam.transform.position.x), -9.2f, 9.2f), Mathf.Clamp((MainCam.transform.position.y), -9.2f, 9.2f), Mathf.Clamp((MainCam.transform.position.z), -9.2f, 9.2f));
 
 
         }

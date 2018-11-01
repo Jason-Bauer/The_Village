@@ -94,8 +94,9 @@ public class MovementForces : MonoBehaviour
         {
             target = townhall;
             thisBuilding = null;
-           // gameMngr.GetComponent<Gamemanager>().Villagers -= 4;
-            GameObject.Find("GameManager").GetComponent<Gamemanager>().Villagers -= 4;
+            // gameMngr.GetComponent<Gamemanager>().Villagers -= 4;
+            //GameObject.Find("GameManager").GetComponent<Gamemanager>().Villagers -= 4;
+            
             return;
         }
     }
