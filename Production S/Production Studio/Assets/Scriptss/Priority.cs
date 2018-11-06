@@ -130,10 +130,14 @@ public class Priority : MonoBehaviour {
         {
             for (int j = 0; j <= Tiles.Tiles.Count - 1; j++)
             {
-                if (!Tiles.Tiles[i][j].GetComponent<Tile>().isbuildingon&& Tiles.Tiles[i][j].GetComponent<Tile>().adjacenttobuilding&& Tiles.Tiles[i][j].GetComponent<Tile>().numadjacent>=topadj)
+                if (!Tiles.Tiles[i][j].GetComponent<Tile>().isbuildingon&& Tiles.Tiles[i][j].GetComponent<Tile>().adjacenttobuilding&& Tiles.Tiles[i][j].GetComponent<Tile>().numadjacent>=0)
                 {
-                    topadj = Tiles.Tiles[i][j].GetComponent<Tile>().numadjacent;
-                    possibletiles.Add(Tiles.Tiles[i][j]);
+                    for (int po = 0; po < Tiles.Tiles[i][j].GetComponent<Tile>().numadjacent; po++)
+                    {
+                        possibletiles.Add(Tiles.Tiles[i][j]);
+                    }
+
+                    Tiles.Tiles[i][j].GetComponent<Tile>().numadjacent = 0;
                 }
                 else
                 {
