@@ -383,7 +383,12 @@ MonoBehaviour:
   ispaused: 0
   eventtrigger: 0
   timer: 0
+  numevents: 2
   cantrigevent: 1
+  Tornadomoving: 0
+  tornadoobj: {fileID: 0}
+  tornadoprefab: {fileID: 1069709963064578, guid: b3bf219bedb3f61478e6595af5317b96,
+    type: 2}
 --- !u!114 &17447648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2695,7 +2700,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &332701424
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9176,7 +9181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1501269012
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9310,12 +9315,14 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Field Size
+  m_Text: 'Remember to put
 
-'
+    Options in here
+
+    Eventually'
 --- !u!222 &1530414621
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12473,7 +12480,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2114621602
 RectTransform:
   m_ObjectHideFlags: 0

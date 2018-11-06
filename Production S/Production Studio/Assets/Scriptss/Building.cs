@@ -7,6 +7,7 @@ public class Building : MonoBehaviour {
     public int cost;
     public int type;
     public GameObject gamemander;
+    public GameObject tile;
 	// Use this for initialization
 	void Start () {
         gamemander = GameObject.Find("GameManager");

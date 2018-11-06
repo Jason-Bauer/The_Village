@@ -50,6 +50,7 @@ public class Priority : MonoBehaviour {
                 NextTile.GetComponent<Tile>().Buildingattached = Instantiate(Buildings[PriorityQueue.Peek()]);
                 NextTile.GetComponent<Tile>().Buildingattached.transform.parent = NextTile.transform;
                 NextTile.GetComponent<Tile>().Buildingattached.GetComponent<Building>().type = PriorityQueue.Peek();
+                NextTile.GetComponent<Tile>().Buildingattached.GetComponent<Building>().tile = NextTile;
                 NextTile.GetComponent<Tile>().Buildingattached.transform.localPosition = new Vector3(0, .5f, 0);
                 this.GetComponent<BehaviourManager>().makeVillager(NextTile.GetComponent<Tile>().Buildingattached);
                 if (NextTile.GetComponent<Tile>().Buildingattached.GetComponent<Building>().type == 4)

@@ -13,8 +13,12 @@ public class Gamemanager : MonoBehaviour {
     public bool ispaused = false;
     public int eventtrigger;
     public float timer;
+    public int numevents = 2;
     private IEnumerator coroutine, coroutine2;
     public bool cantrigevent = true;
+    public bool Tornadomoving = false;
+    public GameObject tornadoobj;
+    public GameObject tornadoprefab;
     // Use this for initialization
     void Start () {
         Resources = 0;
@@ -28,6 +32,11 @@ public class Gamemanager : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown("t"))
+        {
+            triggerEvent();
+        }
+
         if (!ispaused)
         {
             //timer += Time.deltaTime;
@@ -75,14 +84,20 @@ public class Gamemanager : MonoBehaviour {
     {
         EventText.text = "Event: Event Triggered";
         coroutine = WaitAndChange(3.0f);
-        bool townahlltrigger = true;
-        GameObject deletetile;
-        do{
-            int rand = Random.Range(0, GetComponent<TileManager>().numrows * 2);
+        int eventype = Random.Range(0, numevents) + 1;
+
+        switch (eventype)
+        {
+            case 1:
+             bool townahlltrigger = true;
+            GameObject deletetile;
+             do {
+                    EventText.text = "EARTHQUAKE!";
+                    int rand = Random.Range(0, GetComponent<TileManager>().numrows * 2);
             int rand1 = Random.Range(0, GetComponent<TileManager>().numrows * 2);
             deletetile = GetComponent<TileManager>().Tiles[rand][rand1];
-           // Debug.Log(rand + "," + rand1);
-            if(rand== GetComponent<TileManager>().numrows&&rand1== GetComponent<TileManager>().numrows)
+            // Debug.Log(rand + "," + rand1);
+            if (rand == GetComponent<TileManager>().numrows && rand1 == GetComponent<TileManager>().numrows)
             {
                 townahlltrigger = false;
             }
@@ -90,11 +105,25 @@ public class Gamemanager : MonoBehaviour {
             {
                 townahlltrigger = true;
             }
-        }while(!deletetile.GetComponent<Tile>().isbuildingon&&townahlltrigger);
-        coroutine2 = BuildingDestruction(3.0f, deletetile);
-
-
-        StartCoroutine(coroutine2);
+        } while (!deletetile.GetComponent<Tile>().isbuildingon && townahlltrigger);
+                 coroutine2 = BuildingDestruction(3.0f, deletetile);
+                StartCoroutine(coroutine2);
+       
+                break;
+            case 2:
+                EventText.text = "TORNADO!";
+                int startx = Random.Range(0, GetComponent<TileManager>().numrows * 2);
+                int starty = Random.Range(0, GetComponent<TileManager>().numrows * 2);
+                int endx = Random.Range(0, GetComponent<TileManager>().numrows * 2);
+                int endy = Random.Range(0, GetComponent<TileManager>().numrows * 2);
+                GameObject StartTile = GetComponent<TileManager>().Tiles[startx][starty];
+                GameObject EndTile = GetComponent<TileManager>().Tiles[endx][endy];
+                Vector3 directionvec = Vector3.Normalize(new Vector3(endx-startx,0,endy-starty));
+                tornadoobj = Instantiate(tornadoprefab);
+                tornadoobj.transform.position = new Vector3(StartTile.transform.position.x, 1, StartTile.transform.position.z);
+                tornadoobj.GetComponent<TornadoThings>().target = EndTile;
+                break;
+    }
         StartCoroutine(coroutine);
         Debug.Log("Event Triggered");
     }

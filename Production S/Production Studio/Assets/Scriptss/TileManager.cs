@@ -69,6 +69,7 @@ public class TileManager : MonoBehaviour {
                     {
                         int rand = Random.Range(0, 3);
                         Tiles[i][j].GetComponent<Tile>().Buildingattached = Instantiate(lands[rand]);
+                        
                         Tiles[i][j].GetComponent<Tile>().Buildingattached.transform.SetParent(Tiles[i][j].transform);
                         if (rand == 0)
                         {
