@@ -12,7 +12,9 @@ public class TornadoThings : MonoBehaviour {
     public GameObject target;
     Vector3 seekingForce;
     private IEnumerator coroutine;
+    public CapsuleCollider collider;
     void Start () {
+        collider = this.gameObject.GetComponent<CapsuleCollider>();
         coroutine = WaitAndChange();
         StartCoroutine(coroutine);
     }
@@ -21,6 +23,7 @@ public class TornadoThings : MonoBehaviour {
 	void Update () {
         UpdatePosition(); //Update the position based on forces
                           //worldSize = behaviourMngr.worldSize;//Check the size of the world
+        this.gameObject.transform.rotation = Quaternion.identity;
                           //BounceBoundry();
                           //Check the border of the terrain
         SetTransform();//Set the transform before render
@@ -39,7 +42,7 @@ public class TornadoThings : MonoBehaviour {
     void SetTransform()
     {
         transform.position = position;
-        transform.right = direction;
+        //transform.right = direction;
     }
     void UpdatePosition()
     {
@@ -73,7 +76,7 @@ public class TornadoThings : MonoBehaviour {
         //Step 2: Calculate the maximum speed
 
         desiredVelocity = Vector3.ClampMagnitude(desiredVelocity, maxSpeed);
-        desiredVelocity.y = 0;
+      //  desiredVelocity.y = 0;
         //Step 3: Calculate Steering force
         Vector3 steeringForce = desiredVelocity - velocity;
 
@@ -82,7 +85,7 @@ public class TornadoThings : MonoBehaviour {
     }
     Vector3 pursuit()
     {
-        return Seek(target.transform.position);
+        return Seek(new Vector3( target.transform.position.x, target.transform.position.y+1, target.transform.position.z));
     }
     void ApplyForce(Vector3 force)
     {
@@ -92,5 +95,16 @@ public class TornadoThings : MonoBehaviour {
         //F / M = A * 1
         //A = F / M
         acceleration += force / mass;
+    }
+    void OnCollisionEnter(Collision col)
+    {
+        Debug.Log("collision detected");
+        
+            if (col.gameObject.GetComponent<Tile>().buildingtype != 0)
+            {
+                Destroy(col.gameObject.GetComponent<Tile>().Buildingattached);
+                Debug.Log("Tornado destroyed something");
+            }
+        
     }
 }

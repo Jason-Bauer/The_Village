@@ -129,7 +129,7 @@ public class MovementForces : MonoBehaviour
 			//Step 2: Calculate the maximum speed
 		
 		desiredVelocity = Vector3.ClampMagnitude (desiredVelocity, maxSpeed);
-		desiredVelocity.y = 0;
+		//desiredVelocity.y = 0;
 		//Step 3: Calculate Steering force
 		Vector3 steeringForce = desiredVelocity - velocity;
 
@@ -146,7 +146,7 @@ public class MovementForces : MonoBehaviour
 			//Step 2: Calculate the maximum speed
 		
 		desiredVelocity = Vector3.ClampMagnitude (desiredVelocity, maxSpeed);
-		desiredVelocity.y = 0;
+		//desiredVelocity.y = 0;
 		Vector3 steeringForce = desiredVelocity - velocity;
 		//Step 4: return that force
 		return steeringForce;

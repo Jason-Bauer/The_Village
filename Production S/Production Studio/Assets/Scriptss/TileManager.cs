@@ -33,17 +33,18 @@ public class TileManager : MonoBehaviour {
             for(int j = 0; j <= numcolumns*2; j++)
             {
                 GameObject spawntile = Instantiate(tile);
-                spawntile.transform.position = new Vector3(currentX, 0, currentZ);
+                float currenty = Random.Range(-.25f, .25f);
+                spawntile.transform.position = new Vector3(currentX, currenty, currentZ);
                 spawntile.transform.parent = parent.transform;
                 spawntile.GetComponent<Tile>().x = j;
                 spawntile.GetComponent<Tile>().y = i;
                 spawnrow.Add(spawntile);
 
-                currentX += 1.1f;
+                currentX += 1.01f;
                 
             }
-            currentZ += 1.1f;
-            currentX=numrows * -1.1f;
+            currentZ += 1.01f;
+            currentX=numrows * -1.01f;
             Tiles.Add(spawnrow);
 
         }
@@ -88,6 +89,7 @@ public class TileManager : MonoBehaviour {
 
                         }
                         Tiles[i][j].GetComponent<Tile>().isbuildingon = false;
+                        Tiles[i][j].GetComponent<Tile>().buildingtype = 100;
                     }
                 }
             }
@@ -98,7 +100,7 @@ public class TileManager : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-      
+        this.gameObject.transform.rotation = Quaternion.identity;
 
     }
     public void checkAdjacent()

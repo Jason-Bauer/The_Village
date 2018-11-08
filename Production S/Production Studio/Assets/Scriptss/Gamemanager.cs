@@ -120,7 +120,7 @@ public class Gamemanager : MonoBehaviour {
                 GameObject EndTile = GetComponent<TileManager>().Tiles[endx][endy];
                 Vector3 directionvec = Vector3.Normalize(new Vector3(endx-startx,0,endy-starty));
                 tornadoobj = Instantiate(tornadoprefab);
-                tornadoobj.transform.position = new Vector3(StartTile.transform.position.x, 1, StartTile.transform.position.z);
+                tornadoobj.transform.position = new Vector3(StartTile.transform.position.x, 1.5f, StartTile.transform.position.z);
                 tornadoobj.GetComponent<TornadoThings>().target = EndTile;
                 break;
     }
@@ -133,7 +133,7 @@ public class Gamemanager : MonoBehaviour {
             cantrigevent = false;
             yield return new WaitForSeconds(waitTime);
             cantrigevent = true;
-            print("WaitAndPrint " + Time.time);
+          //  print("WaitAndPrint " + Time.time);
             EventText.text = "Event: ";
         
     }
