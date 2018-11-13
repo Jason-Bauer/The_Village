@@ -35,7 +35,7 @@ public class TornadoThings : MonoBehaviour {
     private IEnumerator WaitAndChange()
     {
        
-        yield return new WaitForSeconds(120.0f);
+        yield return new WaitForSeconds(60.0f);
         Destroy(this.gameObject);
 
     }
