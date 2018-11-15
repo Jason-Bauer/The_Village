@@ -18,15 +18,16 @@ public class MenuControl : MonoBehaviour {
         war.GetComponent<Image>().color = Color.red;
         gather.GetComponent<Image>().color = Color.red;
         tech.GetComponent<Image>().color = Color.red;
-        isgather = true;
-        gather.GetComponent<Image>().color = Color.green;
-    
+       //gather.GetComponent<Image>().color = Color.green;
+       //isgather = true;
+       // this.gameObject.GetComponent<Priority>().BuildPriority();
+
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        //this.gameObject.GetComponent<Priority>().BuildPriority();
+    }
     public void openOptions()
     {
         if (OptionsMenu.activeSelf)
@@ -67,6 +68,7 @@ public class MenuControl : MonoBehaviour {
         {
             isgather = false;
             gather.GetComponent<Image>().color = Color.red;
+            
         }
         else if (!isgather)
         {
@@ -95,7 +97,7 @@ public class MenuControl : MonoBehaviour {
         {
             Debug.Log("hoWWWWW?");
         }
-        this.GetComponent<Priority>().BuildPriority();
+       this.GetComponent<Priority>().BuildPriority();
     }
     public void fliptech()
     {
@@ -113,6 +115,6 @@ public class MenuControl : MonoBehaviour {
         {
             Debug.Log("No really. how?");
         }
-        this.GetComponent<Priority>().BuildPriority();
+       this.GetComponent<Priority>().BuildPriority();
     }
 }

@@ -98,12 +98,12 @@ public class TornadoThings : MonoBehaviour {
     }
     void OnCollisionEnter(Collision col)
     {
-        Debug.Log("collision detected");
+       // Debug.Log("collision detected");
         
             if (col.gameObject.GetComponent<Tile>().buildingtype != 0)
             {
                 Destroy(col.gameObject.GetComponent<Tile>().Buildingattached);
-                Debug.Log("Tornado destroyed something");
+              //  Debug.Log("Tornado destroyed something");
             }
         
     }

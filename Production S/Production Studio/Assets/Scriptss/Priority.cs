@@ -24,6 +24,7 @@ public class Priority : MonoBehaviour {
         possibleBuildings = new List<int>();
         possibletiles = new List<GameObject>();
         possibletiles2 = new List<GameObject>();
+        NextTile = null;
         Buildings = new List<GameObject>();
         Buildings.Add(Townhall);
         Buildings.Add(Farm);
@@ -64,7 +65,12 @@ public class Priority : MonoBehaviour {
                 BuildPriority();
               
             }
+            
+                //BuildPriority();
+            
+
         }
+       // BuildPriority();
     }
 	// Update is called once per frame
 	void Update ()
@@ -138,15 +144,16 @@ public class Priority : MonoBehaviour {
                         possibletiles.Add(Tiles.Tiles[i][j]);
                     }
 
-                    Tiles.Tiles[i][j].GetComponent<Tile>().numadjacent = 0;
+                    //Tiles.Tiles[i][j].GetComponent<Tile>().numadjacent = 0;
                 }
                 else
                 {
-                    Tiles.Tiles[i][j].GetComponent<Tile>().numadjacent=0;
+                   // Tiles.Tiles[i][j].GetComponent<Tile>().numadjacent=0;
                 }
             }
         }
-      //  Debug.Log(topadj);
+        //  Debug.Log(topadj);
+       // possibletiles2.Add(null);
         possibletiles2.Clear();
         for (int j = 0; j<possibletiles.Count; j++)
         {
@@ -157,8 +164,12 @@ public class Priority : MonoBehaviour {
             }
         }
        
-        int rand2 = Random.Range(0, possibletiles2.Count - 1);
-        NextTile = possibletiles2[rand2];
-       // Debug.Log("Built Priority");
+           // Debug.Log(possibletiles2.Count);
+            int rand2 = Random.Range(0, possibletiles2.Count);
+           // Debug.Log(rand2);
+            // NextTile = null;
+            NextTile = possibletiles[rand2];
+        
+        //Debug.Log("Built Priority");
                 }
 }

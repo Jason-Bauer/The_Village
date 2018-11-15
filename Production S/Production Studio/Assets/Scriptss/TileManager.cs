@@ -75,6 +75,8 @@ public class TileManager : MonoBehaviour {
                         if (rand == 0)
                         {
                             Tiles[i][j].GetComponent<Tile>().Buildingattached.transform.localPosition = new Vector3(0.5f, 0.5f, 0);
+                            Tiles[i][j].GetComponent<Tile>().Buildingattached.transform.localRotation = Quaternion.Euler(0, Random.Range(-90, 90), 0);
+                            //NextTile.GetComponent<Tile>().Buildingattached.transform.localRotation = Quaternion.Euler(0, Random.Range(-90, 90), 0);
                         }
                         else if (rand == 1)
                         {
@@ -85,7 +87,7 @@ public class TileManager : MonoBehaviour {
                         {
                             Tiles[i][j].GetComponent<Tile>().Buildingattached.transform.localPosition = new Vector3(.35f, Random.Range(-.6f, -.75f), .35f);
                             
-                            //Tiles[i][j].GetComponent<Tile>().Buildingattached.transform.localRotation = Quaternion.Euler(-90, 0, Random.Range(-90, 90));
+                            Tiles[i][j].GetComponent<Tile>().Buildingattached.transform.localRotation = Quaternion.Euler(-90, 0, Random.Range(-50, 50));
 
                         }
                         Tiles[i][j].GetComponent<Tile>().isbuildingon = false;
