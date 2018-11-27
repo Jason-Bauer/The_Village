@@ -13,7 +13,7 @@ public class CameraMove : MonoBehaviour
     private Vector3 panOrigin;
     public bool bDragging = true;
     public bool thing = true;
-
+    
     public float outerLeft = -10f;
     public float outerRight = 10f;
     public GameObject gamemander;

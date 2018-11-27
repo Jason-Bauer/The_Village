@@ -12,22 +12,35 @@ public class Gamemanager : MonoBehaviour {
     public Text RText, VText, SText, TText,EventText;
     public bool ispaused = false;
     public int eventtrigger;
-    public float timer;
+    public float timer,suntimer;
     public int numevents = 2;
     private IEnumerator coroutine, coroutine2;
     public bool cantrigevent = true;
     public bool Tornadomoving = false;
     public GameObject tornadoobj;
     public GameObject tornadoprefab;
+    public bool sunrising, sunsetting,towardsmid;
+    public GameObject Light;
+    public Light mainlight;
+    public float R, G, B;
     // Use this for initialization
     void Start () {
+        sunrising = true;
+        sunsetting = false;
+        towardsmid = false;
+        mainlight = Light.GetComponent<Light>();
         Resources = 0;
         Villagers = 10;
         Soldiers = 0;
         TechLvl = 1;
         eventtrigger = 100;
-        timer = 10;
-	}
+        timer = 0;
+        suntimer = 0;
+        R = 122;
+        G = 110;
+        B = 60;
+       // mainlight.color = new Color(R, G, B);
+    }
 
     // Update is called once per frame
     void Update()
@@ -40,6 +53,78 @@ public class Gamemanager : MonoBehaviour {
         if (!ispaused)
         {
             //timer += Time.deltaTime;
+            if (suntimer > .25f)
+            {
+                suntimer = 0;
+                if (sunrising)
+                {
+                    //mainlight.color.
+                    mainlight.color=new Color(R, G, B);
+                    if (R > 250&&G>170)
+                    {
+                        sunrising = false;
+                        sunsetting = true;
+                    }
+                    else
+                    {
+                        R+=1;
+                        G += .6f;
+                        if (towardsmid)
+                        {
+                            B += .27f;
+                            if (B > 70)
+                            {
+                                towardsmid = false;
+                            }
+                        }
+                        else
+                        {
+                            B -= .27f;
+                            if (B < 5)
+                            {
+                                towardsmid = true;
+                            }
+                        }
+                    }
+                }
+                else if (sunsetting)
+                {
+                    mainlight.color = new Color(R, G, B);
+                    if (R < 15 && G < 15)
+                    {
+                        sunrising = true;
+                        sunsetting = false;
+                    }
+                    else
+                    {
+                        R -= 1;
+                        G -= .6f;
+                        if (towardsmid)
+                        {
+                            B += .27f;
+                            if (B > 70)
+                            {
+                                towardsmid = false;
+                            }
+                        }
+                        else
+                        {
+                            B -= .27f;
+                            if (B < 5)
+                            {
+                                towardsmid = true;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    Debug.Log("How did this happen");
+                }
+               
+            }
+            suntimer += Time.deltaTime;
+
             if (cantrigevent)
             {
                 if (timer > 5)
@@ -54,8 +139,9 @@ public class Gamemanager : MonoBehaviour {
                         }
                     }
                 }
-                timer += Time.deltaTime/1.2f;
+                timer += Time.deltaTime / 1.2f;
             }
+            
             eventtrigger = (int)(((TechLvl + .5) * 10)*.8);
             if (Villagers > (TechLvl+.5) * 10)
             {
