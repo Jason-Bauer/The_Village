@@ -44,7 +44,7 @@ public class Priority : MonoBehaviour {
     {
         if (PriorityQueue.Count > 0)
         {
-            if (Buildings[PriorityQueue.Peek()].GetComponent<Building>().cost < manager.Resources&&PriorityQueue.Count > 0)
+            if ((Buildings[PriorityQueue.Peek()].GetComponent<Building>().cost < manager.Resources )&&(PriorityQueue.Count > 0))
             {
                 manager.Resources -= Buildings[PriorityQueue.Peek()].GetComponent<Building>().cost;
                 Destroy(NextTile.GetComponent<Tile>().Buildingattached);
