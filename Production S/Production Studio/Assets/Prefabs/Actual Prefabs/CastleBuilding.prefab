@@ -113,7 +113,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1605987977016564}
-  m_Mesh: {fileID: 4300000, guid: fc6d6cee383cd464b91dba3429c40c1f, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 8690f2ec402369643b29de7bdef861a4, type: 3}
 --- !u!114 &114258201372459402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,6 +128,7 @@ MonoBehaviour:
   cost: 0
   type: 0
   gamemander: {fileID: 0}
+  tile: {fileID: 0}
 --- !u!114 &114714679642099482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,3 +143,4 @@ MonoBehaviour:
   cost: 100
   type: 4
   gamemander: {fileID: 0}
+  tile: {fileID: 0}
